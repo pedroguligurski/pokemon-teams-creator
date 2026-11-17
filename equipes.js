@@ -143,6 +143,7 @@ function mostrarEquipesSalvas() {
 function iniciarFormulario() {
   const formulario = document.querySelector("#formEquipe");
   const campoNome = document.querySelector("#nomeEquipe");
+  const campoEmail = document.querySelector("#emailTreinador");
   const resultado = document.querySelector("#resultadoEnvio");
 
   // Quando sai do campo vazio, ele fica vermelho.
@@ -152,6 +153,12 @@ function iniciarFormulario() {
 
   formulario.addEventListener("submit", async (evento) => {
     evento.preventDefault();
+    // Não deixa criar equipe com nome só de espaços.
+    if (campoNome.value.trim() === "") {
+      resultado.classList.add("erro");
+      resultado.textContent = "Digite um nome para a equipe.";
+      return;
+    }
     // Só deixa criar com 6 Pokémon.
     if (equipeAtual.length !== TAMANHO_EQUIPE) {
       resultado.classList.add("erro");
@@ -160,6 +167,7 @@ function iniciarFormulario() {
     }
     const equipe = {
       nome: campoNome.value.trim(),
+      email: campoEmail.value.trim(),
       criadaEm: new Date().toISOString(),
       pokemons: equipeAtual.map((p) => p.nome)
     };
