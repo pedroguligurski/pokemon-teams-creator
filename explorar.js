@@ -1,11 +1,13 @@
-
+// ===== CONSTANTES =====
 const CHAVE_ESCURO = "modoEscuro";
 const CHAVE_FAVORITOS = "favoritos";
 
+// Lê a lista de ids favoritos salva no navegador
 function lerFavoritos() {
   return JSON.parse(localStorage.getItem(CHAVE_FAVORITOS)) || [];
 }
 
+// Liga/desliga o modo escuro e guarda a preferência
 function iniciarModoEscuro() {
   const botao = document.querySelector("#botaoEscuro");
   if (localStorage.getItem(CHAVE_ESCURO) === "true") {
@@ -19,9 +21,10 @@ function iniciarModoEscuro() {
 
 const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
-let listaDePokemons = []; 
+let listaDePokemons = []; // dados da API ficam neste array
 let favoritos = lerFavoritos();
 
+// GET: busca a lista e depois os detalhes de cada Pokémon
 async function buscarPokemons() {
   const status = document.querySelector("#status");
   status.textContent = "Carregando...";
@@ -47,6 +50,7 @@ async function buscarPokemons() {
   }
 }
 
+// Marca ou desmarca um favorito e salva no localStorage
 function alternarFavorito(id) {
   if (favoritos.includes(id)) {
     favoritos = favoritos.filter((fav) => fav !== id);
@@ -56,6 +60,7 @@ function alternarFavorito(id) {
   localStorage.setItem(CHAVE_FAVORITOS, JSON.stringify(favoritos));
 }
 
+// Cria os cartões na tela
 function mostrarCartoes(lista) {
   const container = document.querySelector("#listaCartoes");
   container.textContent = "";
@@ -87,6 +92,7 @@ function mostrarCartoes(lista) {
   });
 }
 
+// Busca por nome + filtro de favoritos
 function aplicarFiltros() {
   const texto = document.querySelector("#busca").value.toLowerCase();
   const soFavoritos = document.querySelector("#soFavoritos").checked;
