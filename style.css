@@ -1,0 +1,124 @@
+/* ===== Body ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  background-color: #f5f6fa;
+  color: #222222;
+}
+
+/* ===== Cabeçalho e menu (Flexbox) ===== */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 24px;
+  background-color: #e3350d;
+  color: white;
+}
+.logo { font-size: 24px; font-weight: bold; color: white; text-decoration: none; }
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu > li a { color: white; font-weight: bold; text-decoration: none; }
+.menu a:hover { text-decoration: underline; }
+
+/* ===== Conteúdo ===== */
+main { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+section { margin-bottom: 28px; }
+h1 { text-align: center; color: rgb(180, 30, 0); }
+h2::before { content: "● "; color: #ffcb05; }
+.destaque { text-align: center; }
+
+/* ===== Grid de cartões ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cartao {
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  padding: 14px;
+  background-color: white;
+  text-align: center;
+}
+.cartao img { width: 96px; height: 96px; }
+
+/* ===== Botões ===== */
+.botao {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #a82200;
+  border-radius: 6px;
+  background-color: #e3350d;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.botao:hover { background-color: #a82200; }
+.botao.favorito { background-color: #2e7d32; border-color: #1b5e20; }
+
+/* botões pequenos da escolha de Pokémon */
+.lista-mini { display: flex; flex-wrap: wrap; gap: 8px; }
+.mini {
+  padding: 6px 10px;
+  border: 1px solid #999999;
+  border-radius: 16px;
+  background-color: white;
+  cursor: pointer;
+}
+.mini:hover { background-color: #ffcb05; }
+.mini.escolhido { background-color: #ffcb05; border-color: #b08900; }
+
+/* ===== Formulários ===== */
+label { display: block; margin-top: 12px; font-weight: bold; }
+label.opcao { display: inline; margin-top: 0; }
+input[type="text"], input[type="search"], select {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid #888888;
+  border-radius: 6px;
+}
+input:focus, select:focus { outline: 3px solid hsl(210, 80%, 50%); }
+input::placeholder { color: gray; }
+.erro, input.erro { color: #b00020; border-color: #b00020; }
+
+/* ===== Tabela de comparação ===== */
+table { width: 100%; border-collapse: collapse; margin-top: 16px; background-color: white; }
+th, td { padding: 8px; border: 1px solid #dddddd; text-align: center; }
+th { background-color: #e3350d; color: white; }
+td.vencedor { background-color: #c8e6c9; font-weight: bold; }
+#areaResultado figure { display: inline-block; margin: 0 24px; text-align: center; }
+#areaResultado img { width: 120px; height: 120px; }
+
+/* ===== Rodapé ===== */
+.rodape { text-align: center; padding: 16px; background-color: #222222; color: white; }
+
+/* ===== Modo escuro ===== */
+body.escuro { background-color: #1b1b1f; color: #eeeeee; }
+.escuro .cartao, .escuro table, .escuro .mini { background-color: #2a2a30; border-color: #555555; color: #eeeeee; }
+.escuro .mini:hover, .escuro .mini.escolhido { background-color: #8a6d00; }
+.escuro td.vencedor { background-color: #1b5e20; }
+.escuro h1 { color: #ff8a80; }
+
+/* ===== Celular ===== */
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+  .cabecalho { flex-direction: column; }
+  table { font-size: 13px; }
+}
