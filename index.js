@@ -24,7 +24,7 @@ function mostrarFavoritos() {
   document.querySelector("#contadorFavoritos").textContent = lerFavoritos().length;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   iniciarModoEscuro();
   mostrarFavoritos();
 });
