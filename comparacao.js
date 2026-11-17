@@ -1,10 +1,13 @@
+// ===== CONSTANTES =====
 const CHAVE_ESCURO = "modoEscuro";
 const CHAVE_FAVORITOS = "favoritos";
 
+// Lê a lista de ids favoritos salva no navegador
 function lerFavoritos() {
   return JSON.parse(localStorage.getItem(CHAVE_FAVORITOS)) || [];
 }
 
+// Liga/desliga o modo escuro e guarda a preferência
 function iniciarModoEscuro() {
   const botao = document.querySelector("#botaoEscuro");
   if (localStorage.getItem(CHAVE_ESCURO) === "true") {
@@ -18,6 +21,7 @@ function iniciarModoEscuro() {
 
 const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
+// Busca só nome e id (o id é o 7º pedaço da url)
 async function buscarLista() {
   const resposta = await fetch(API_URL);
   if (!resposta.ok) { throw new Error("Erro " + resposta.status); }
@@ -38,6 +42,7 @@ const NOMES_STATS = {
 let listaDePokemons = [];
 const favoritos = lerFavoritos();
 
+// ===== TDE 01: funções nomeadas =====
 function somar(a, b) { return a + b; }
 function subtrair(a, b) { return a - b; }
 function multiplicar(a, b) { return a * b; }
@@ -46,16 +51,20 @@ function dividir(a, b) {
   return a / b;
 }
 
+// Callback: recebe outra função como parâmetro
 function calcular(a, b, operacao) { return operacao(a, b); }
 
+// Arrow functions que trabalham com arrays
 const somarLista = (valores) => valores.reduce((total, v) => calcular(total, v, somar), 0);
 const calcularMedia = (valores) => dividir(somarLista(valores), valores.length);
 
+// Preenche os dois selects respeitando os filtros
 function preencherSelects() {
   const texto = document.querySelector("#busca").value.toLowerCase();
   const soFavoritos = document.querySelector("#soFavoritos").checked;
   [document.querySelector("#pokemonA"), document.querySelector("#pokemonB")].forEach((select, posicao) => {
     const escolhido = select.value;
+    // mantém o Pokémon já escolhido na lista, mesmo que ele não passe no filtro
     const opcoes = listaDePokemons.filter((p) =>
       String(p.id) === escolhido ||
       (p.nome.includes(texto) && (!soFavoritos || favoritos.includes(p.id))));
@@ -73,6 +82,7 @@ function preencherSelects() {
   });
 }
 
+// GET dos detalhes de um Pokémon
 async function buscarDetalhes(id) {
   const resposta = await fetch(DETALHE_URL + id);
   if (!resposta.ok) { throw new Error("Erro " + resposta.status); }
@@ -106,6 +116,7 @@ function criarFigura(pokemon) {
   return figura;
 }
 
+// Monta a tabela de comparação
 function mostrarComparacao(a, b) {
   const area = document.querySelector("#areaResultado");
   area.textContent = "";
