@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorar - Pokémon Times</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="logo" href="index.html">Pokémon Times</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="comparacao.html">Comparar</a></li>
+        <li><a href="equipes.html">Equipes</a></li>
+      </ul>
+    </nav>
+    <button id="botaoEscuro" class="botao" type="button">Modo escuro</button>
+  </header>
+  <main>
+    <h1>Explorar Pokémon</h1>
+    <section>
+      <h2>Filtros</h2>
+      <label for="busca">Buscar por nome</label>
+      <input type="search" id="busca" placeholder="ex.: pikachu">
+      <p><input type="checkbox" id="soFavoritos"> <label class="opcao" for="soFavoritos">Mostrar só favoritos</label></p>
+    </section>
+    <section>
+      <h2>Pokémon</h2>
+      <p id="status"></p>
+      <div id="listaCartoes" class="grid"></div>
+    </section>
+  </main>
+  <footer class="rodape">
+    <p>Projeto Web Front-End · Grupo: Pedro Guligurski, Luiza Wesp, Ruan Eduardo e Fatima Nacimy</p>
+  </footer>
+  <script src="explorar.js"></script>
+</body>
+</html>
