@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipes - Pokémon Times</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="logo" href="index.html">Pokémon Times</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="comparacao.html">Comparar</a></li>
+        <li><a href="equipes.html">Equipes</a></li>
+      </ul>
+    </nav>
+    <button id="botaoEscuro" class="botao" type="button">Modo escuro</button>
+  </header>
+  <main>
+    <h1>Criar equipe</h1>
+    <section>
+      <h2>Escolha os Pokémon</h2>
+      <label for="busca">Buscar por nome</label>
+      <input type="search" id="busca" placeholder="ex.: bulbasaur">
+      <p><input type="checkbox" id="soFavoritos"> <label class="opcao" for="soFavoritos">Mostrar só favoritos</label></p>
+      <p id="status"></p>
+      <div id="listaDisponiveis" class="lista-mini"></div>
+    </section>
+    <section>
+      <h2>Sua equipe</h2>
+      <form id="formEquipe">
+        <label for="nomeEquipe">Nome da equipe</label>
+        <input type="text" id="nomeEquipe" required>
+        <p id="contador">Selecionados: 0/6</p>
+        <ol id="equipeAtual"></ol>
+        <p id="aviso"></p>
+        <button type="submit" class="botao">Criar equipe</button>
+      </form>
+      <p id="resultadoEnvio"></p>
+    </section>
+    <section>
+      <h2>Equipes criadas</h2>
+      <div id="listaEquipes" class="grid"></div>
+    </section>
+  </main>
+  <footer class="rodape">
+    <p>Projeto Web Front-End · Grupo: Pedro Guligurski, Luiza Wesp, Ruan Eduardo e Fatima Nacimy</p>
+  </footer>
+  <script src="equipes.js"></script>
+</body>
+</html>
