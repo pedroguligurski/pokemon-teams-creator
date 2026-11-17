@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início - Pokémon Times</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="logo" href="index.html">Pokémon Times</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="comparacao.html">Comparar</a></li>
+        <li><a href="equipes.html">Equipes</a></li>
+      </ul>
+    </nav>
+    <button id="botaoEscuro" class="botao" type="button">Modo escuro</button>
+  </header>
+  <main>
+    <h1>Monte seu time de Pokémon</h1>
+    <section>
+      <h2>A ideia</h2>
+      <article>
+        <p>Explore os Pokémon da PokéAPI, favorite os seus preferidos, compare os atributos e crie equipes de 6 Pokémon.</p>
+      </article>
+      <figure class="destaque">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Ilustração do Pokémon Pikachu" width="160">
+        <figcaption>Pikachu, um clássico para qualquer equipe.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>O que você pode fazer</h2>
+      <div class="grid">
+        <article class="cartao">
+          <h3>Explorar</h3>
+          <p>Veja os Pokémon e favorite os seus preferidos.</p>
+          <a class="botao" href="explorar.html">Ir para Explorar</a>
+        </article>
+        <article class="cartao">
+          <h3>Comparar</h3>
+          <p>Escolha 2 Pokémon e veja quem tem os maiores atributos.</p>
+          <a class="botao" href="comparacao.html">Ir para Comparar</a>
+        </article>
+        <article class="cartao">
+          <h3>Equipes</h3>
+          <p>Dê um nome e escolha 6 Pokémon para criar sua equipe.</p>
+          <a class="botao" href="equipes.html">Ir para Equipes</a>
+        </article>
+      </div>
+    </section>
+    <aside class="cartao">
+      <h2>Seus favoritos</h2>
+      <p>Você tem <strong id="contadorFavoritos">0</strong> Pokémon favoritos.</p>
+    </aside>
+  </main>
+  <footer class="rodape">
+    <p>Projeto Web Front-End · Grupo: Pedro Guligurski, Luiza Wesp, Ruan Eduardo e Fatima Nacimy</p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
